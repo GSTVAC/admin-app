@@ -430,7 +430,21 @@ angular.module('supportAdminApp', [
         data: { pageTitle: 'Spigit - Idea List' },
         controller: 'IdeaListController',
         resolve: { auth: authenticate }
-      });
+      })
+      .state('index.terms', {
+        abstract: true,
+        url: '/terms',
+        templateUrl: 'app/terms/terms.html',
+        data: { pageTitle: 'Terms' },
+        controller: 'terms.TermsController'
+      })
+      .state('index.terms.list', {
+        url: '/list',
+        templateUrl: 'app/terms/terms.list.html',
+        controller: 'terms.TermsListController',
+        resolve: { auth: authenticate }
+      })
+;
 
     $urlRouterProvider.otherwise('/index/main');
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);

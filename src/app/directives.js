@@ -1,7 +1,9 @@
 'use strict';
 
+var module = angular.module('supportAdminApp');
+
 //Directive used to set metisMenu and minimalize button
-angular.module('supportAdminApp')
+module
     .directive('sideNavigation', function ($timeout) {
         return {
             restrict: 'A',
@@ -70,6 +72,28 @@ angular.module('supportAdminApp')
                     event.preventDefault();
                     event.stopPropagation();
                     return false;
+                });
+            }
+        };
+    });
+
+// Restrict input keystrokes
+module
+    .directive('numbersOnly', function(){
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function(scope, element, attrs, modelCtrl) {
+    
+                modelCtrl.$parsers.push(function (inputValue) {
+                    var transformedInput = inputValue ? inputValue.replace(/\D/g,'') : null;
+    
+                    if (transformedInput!=inputValue) {
+                        modelCtrl.$setViewValue(transformedInput);
+                        modelCtrl.$render();
+                    }
+    
+                    return transformedInput;
                 });
             }
         };

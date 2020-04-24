@@ -76,7 +76,7 @@ angular.module('supportAdminApp')
           TermService.handleError(error, deferred);
         });
         return deferred.promise;
-      }
+      };
 
       /**
        * Edit the term
@@ -84,7 +84,7 @@ angular.module('supportAdminApp')
       TermService.editTerm = function (id, entity) {
         var deferred = $q.defer();
         $http({
-          method: 'PATCH',
+          method: 'PUT',
           data: entity,
           headers: {
             'Content-Type': 'application/json'
@@ -96,7 +96,7 @@ angular.module('supportAdminApp')
           TermService.handleError(error, deferred);
         });
         return deferred.promise;
-      }
+      };
 
       /**
        * find the term by Id
@@ -111,7 +111,27 @@ angular.module('supportAdminApp')
           TermService.handleError(error, deferred);
         });
         return deferred.promise;
-      }
+      };
+
+      /**
+       * Delete the term
+       */
+      TermService.deleteTerm = function (termId) {
+        var deferred = $q.defer();
+        $http({
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          url: TermService.getBasePath() + '/terms/' + termId,
+        }).then(function (response) {
+          deferred.resolve();
+        }).catch(function (error) {
+          TermService.handleError(error, deferred);
+        });
+        return deferred.promise;
+      };
+
       return TermService;
     }
-]);
+  ]);

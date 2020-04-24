@@ -2,10 +2,17 @@
 
 var module = angular.module('supportAdminApp');
 
-module.controller('terms.EditTermController', ['$scope', 'AGREEABILITY_TYPE_DOCUSIGNABLE', 'Alert', 
-  'TermService', '$rootScope', '$state', '$stateParams',
-  function ($scope, AGREEABILITY_TYPE_DOCUSIGNABLE, $alert, TermService, $rootScope, $state, $stateParams) {
-    $scope.docusignableAgrTypeId = AGREEABILITY_TYPE_DOCUSIGNABLE;
+module.controller('terms.EditTermController', ['$scope', 'AGREE_FOR_DOCUSIGN_TEMPLATE', 'Alert', 
+  'TermService', '$rootScope', '$state', '$stateParams', 'terms.Constants',
+  function ($scope, AGREE_FOR_DOCUSIGN_TEMPLATE, $alert, TermService, $rootScope, $state, $stateParams, constants) {
+    $scope.docusignableAgrTypeId = AGREE_FOR_DOCUSIGN_TEMPLATE;
+
+    $scope.formConfig = {
+      // options for agreeability type select
+      agreeabilityTypeOptions: constants.AGREEABILITY_TYPES,
+      // pattern to validate number input fields
+      onlyNumbersPattern: /^\d+$/
+    };
 
     // flags if there is an ongoing submit request
     $scope.processing = false;
@@ -16,11 +23,19 @@ module.controller('terms.EditTermController', ['$scope', 'AGREEABILITY_TYPE_DOCU
     // to show the spinner while loading the record
     $scope.isLoading = false;
 
+    // set to null the docusign template id when agreeability type is changed
+    $scope.$watch('term.agreeabilityTypeId', function(newValue, oldValue){
+      if (newValue !== AGREE_FOR_DOCUSIGN_TEMPLATE) {
+        $scope.term.docusignTemplateId = null;
+      }
+    });
+
     // fetch initial data
     if ($stateParams.termId) {
       $scope.isLoading = true;
       TermService.findTermById($stateParams.termId)
         .then(function (data) {
+          delete data.agreeabilityType;
           $scope.term = data;
           $scope.isLoading = false;
         })
@@ -35,6 +50,10 @@ module.controller('terms.EditTermController', ['$scope', 'AGREEABILITY_TYPE_DOCU
     $scope.submitTerm = function () {
       $scope.processing = true;
       var entity = Object.assign({}, $scope.term);
+
+      if (entity.agreeabilityTypeId !== AGREE_FOR_DOCUSIGN_TEMPLATE) {
+        delete entity.docusignTemplateId;
+      }
 
       var submitPromise = null;
 

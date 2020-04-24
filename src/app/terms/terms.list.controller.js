@@ -2,8 +2,9 @@
 
 var module = angular.module('supportAdminApp');
 
-module.controller('terms.TermsListController', ['$scope', 'Alert', '$rootScope', 'TermService',
-  function ($scope, $alert, $rootScope, TermService) {
+module.controller('terms.TermsListController', ['$scope', 'Alert', '$rootScope',
+  'TermService', '$uibModal',
+  function ($scope, $alert, $rootScope, TermService, $uibModal) {
     var perPage = 25;
 
     // search
@@ -93,6 +94,22 @@ module.controller('terms.TermsListController', ['$scope', 'Alert', '$rootScope',
         return res;
       };
 
+      // open the delete modal
+      $scope.deleteTerm = function(term) {
+        $uibModal.open({
+          size: 'sm',
+          templateUrl: 'app/terms/terms.delete.html',
+          controller: 'terms.DeleteTermController',
+          resolve: {
+            term: function () {
+              return term;
+            }
+          }
+        }).result.then(function (result) {
+          $scope.search();
+        });
+      };
+  
       // load the terms
       $scope.search(true);
   }

@@ -41,7 +41,7 @@ The following configuration parameters are available:
 | GROUP_V5_API_URL                 | URL of the v5 Groups API          |
 | LOOKUP_V5_API_URL                | URL of the v5 Devices API         |
 | TERMS_V5_API_URL                 | URL of the v5 Terms API           |
-| AGREEABILITY_TYPE_DOCUSIGNABLE   | ID of the DocuSignagle Agreeability Type |
+| AGREE_FOR_DOCUSIGN_TEMPLATE      | ID of the DocuSignagle Agreeability Type |
 
 
 ## Start the Application

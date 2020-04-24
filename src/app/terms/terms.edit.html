@@ -6,7 +6,8 @@
                     <div class="text-center" ng-show="isLoading">
                         <img src="assets/images/loading.gif" />
                     </div>
-                    <form role="form" name="editTermForm" data-toggle="validator" autocomplete="off" novalidate ng-show="!isLoading">
+                    <form role="form" name="editTermForm" data-toggle="validator" autocomplete="off" novalidate
+                        ng-show="!isLoading">
                         <div class="row">
                             <div class="form-group col-xs-12"
                                 ng-class="{'has-error': editTermForm.title.$touched && editTermForm.title.$invalid}">
@@ -19,8 +20,8 @@
                             <div class="form-group col-xs-12"
                                 ng-class="{'has-error': editTermForm.text.$touched && editTermForm.text.$invalid}">
                                 <label for="term-text">Text</label>
-                                <textarea id="term-text" class="form-control" ng-model="term.text" name="text"
-                                    required></textarea>
+                                <textarea id="term-text" class="form-control" ng-model="term.text"
+                                    name="text"></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -35,19 +36,20 @@
                                 ng-class="{'has-error': editTermForm.agreeabilityTypeId.$touched && editTermForm.agreeabilityTypeId.$invalid}">
                                 <label for="term-agreeability-type-id">Agreeability Type</label>
                                 <select id="term-agreeability-type-id" class="form-control"
-                                    ng-model="term.agreeabilityTypeId" name="agreeabilityTypeId">
+                                    ng-model="term.agreeabilityTypeId" name="agreeabilityTypeId" required>
                                     <option></option>
-                                    <option value="1">Non-agreeable</option>
-                                    <option value="2">Non-electronically-agreeable</option>
-                                    <option value="3">Electronically-agreeable</option>
-                                    <option value="4">DocuSignable</option>
+                                    <option ng-repeat="option in formConfig.agreeabilityTypeOptions"
+                                        value="{{option.id}}">
+                                        {{option.name}}</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-6"
                                 ng-class="{'has-error': editTermForm.docusignTemplateId.$touched && editTermForm.docusignTemplateId.$invalid}">
                                 <label for="term-docusign-template-id">Docusign Template ID</label>
-                                <input id="term-docusign-template-id" type="text" class="form-control" ng-model="term.docusignTemplateId"
-                                    name="docusignTemplateId" ng-disabled="term.agreeabilityTypeId != docusignableAgrTypeId">
+                                <input id="term-docusign-template-id" type="text" class="form-control"
+                                    ng-model="term.docusignTemplateId" name="docusignTemplateId"
+                                    ng-disabled="term.agreeabilityTypeId != docusignableAgrTypeId"
+                                    ng-required="term.agreeabilityTypeId == docusignableAgrTypeId">
                             </div>
                         </div>
                         <div class="row">
@@ -55,13 +57,13 @@
                                 ng-class="{'has-error': editTermForm.legacyId.$touched && editTermForm.legacyId.$invalid}">
                                 <label for="term-legacy-id">Legacy ID</label>
                                 <input id="term-legacy-id" type="text" class="form-control" ng-model="term.legacyId"
-                                    name="legacyId">
+                                    name="legacyId" ng-pattern="formConfig.onlyNumbers" numbers-only>
                             </div>
                             <div class="form-group col-md-6"
                                 ng-class="{'has-error': editTermForm.typeId.$touched && editTermForm.typeId.$invalid}">
                                 <label for="term-type-id">Type ID</label>
                                 <input id="term-type-id" type="text" class="form-control" ng-model="term.typeId"
-                                    name="typeId">
+                                    name="typeId" ng-pattern="formConfig.onlyNumbers" numbers-only required>
                             </div>
                         </div>
                         <div class="row">

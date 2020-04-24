@@ -15,7 +15,7 @@
     "GROUP_V5_API_URL": "http://localhost:3000/v5",
     "LOOKUP_V5_API_URL": "http://localhost:3000/v5",
     "TERMS_V5_API_URL": "http://localhost:3000/v5",
-    "AGREEABILITY_TYPE_DOCUSIGNABLE": 4
+    "AGREE_FOR_DOCUSIGN_TEMPLATE": "301a36ec-61f4-11ea-bc96-3c15c2e2c206"
   },
   "dev": {
     "API_URL": "https://api.topcoder-dev.com",
@@ -32,8 +32,8 @@
     "SPIGIT_API_VERSION_PATH": "/api/v1",
     "GROUP_V5_API_URL": "https://api.topcoder-dev.com/v5",
     "LOOKUP_V5_API_URL": "https://api.topcoder-dev.com/v5",
-    "TERMS_V5_API_URL": "https://api.topcoder-dev.com/v5",
-    "AGREEABILITY_TYPE_DOCUSIGNABLE": 4
+    "TERMS_V5_API_URL": "http://167.71.90.133:3000/v5",
+    "AGREE_FOR_DOCUSIGN_TEMPLATE": "301a36ec-61f4-11ea-bc96-3c15c2e2c206"
   },
   "qa": {
     "API_URL": "https://api.topcoder-qa.com",
@@ -51,7 +51,7 @@
     "GROUP_V5_API_URL": "http://localhost:9000",
     "LOOKUP_V5_API_URL": "http://localhost:3000/v5",
     "TERMS_V5_API_URL": "http://localhost:3000/v5",
-    "AGREEABILITY_TYPE_DOCUSIGNABLE": 4
+    "AGREE_FOR_DOCUSIGN_TEMPLATE": "301a36ec-61f4-11ea-bc96-3c15c2e2c206"
   },
   "prod": {
     "API_URL": "https://api.topcoder.com",
@@ -69,6 +69,6 @@
     "GROUP_V5_API_URL": "https://api.topcoder.com/v5",
     "LOOKUP_V5_API_URL": "https://api.topcoder.com/v5",
     "TERMS_V5_API_URL": "https://api.topcoder.com/v5",
-    "AGREEABILITY_TYPE_DOCUSIGNABLE": 4
+    "AGREE_FOR_DOCUSIGN_TEMPLATE": "301a36ec-61f4-11ea-bc96-3c15c2e2c206"
   }
 }

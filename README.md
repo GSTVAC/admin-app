@@ -24,22 +24,24 @@ it defaults to the `dev` environment if BUILD_ENV is empty.
 
 The following configuration parameters are available:
 
-| Name                     | Description                     |
-|--------------------------|---------------------------------|
-| API_URL                  | URL of the topcoder API         |
-| ADMIN_TOOL_URL           | URL of the admin tool API       |
-| API_VERSION_PATH         | Version of the API              |
-| COOKIES_SECURE           | If true the cookies set by this App will only be transmitted over secure  protocols like https. |
-| AUTH_URL                 | Url of Topcoder auth form       |
-| ACCOUNTS_CONNECTOR_URL   | Url to TC account connector     |
-| JWT_V3_NAME              | jwt V3 cookie name              |
-| JWT_V2_NAME              | jwt V2 cookie name              |
-| OAUTH2_TOKEN_NAME              | OAuth2 token name              |
-| OAUTH2_TOKEN_EXPIRETIME_TAGNAME           | OAuth2 token expire time tag name           |
-| SPIGIT_API_URL             | SPIGIT api base url       |
-|SPIGIT_API_VERSION_PATH            | SPIGIT api version path     |
-|GROUP_V5_API_URL            | URL of the v5 Groups API      |
-|LOOKUP_V5_API_URL            | URL of the v5 Devices API      |
+| Name                             | Description                       |
+|----------------------------------|-----------------------------------|
+| API_URL                          | URL of the topcoder API           |
+| ADMIN_TOOL_URL                   | URL of the admin tool API         |
+| API_VERSION_PATH                 | Version of the API                |
+| COOKIES_SECURE                   | If true the cookies set by this App will only be transmitted over secure  protocols like https. |
+| AUTH_URL                         | Url of Topcoder auth form         |
+| ACCOUNTS_CONNECTOR_URL           | Url to TC account connector       |
+| JWT_V3_NAME                      | jwt V3 cookie name                |
+| JWT_V2_NAME                      | jwt V2 cookie name                |
+| OAUTH2_TOKEN_NAME                | OAuth2 token name                 |
+| OAUTH2_TOKEN_EXPIRETIME_TAGNAME  | OAuth2 token expire time tag name |
+| SPIGIT_API_URL                   | SPIGIT api base url               |
+| SPIGIT_API_VERSION_PATH          | SPIGIT api version path           |
+| GROUP_V5_API_URL                 | URL of the v5 Groups API          |
+| LOOKUP_V5_API_URL                | URL of the v5 Devices API         |
+| TERMS_V5_API_URL                 | URL of the v5 Terms API           |
+| AGREEABILITY_TYPE_DOCUSIGNABLE   | ID of the DocuSignagle Agreeability Type |
 
 
 ## Start the Application

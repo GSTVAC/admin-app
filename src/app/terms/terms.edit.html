@@ -1,0 +1,84 @@
+<div class="wrapper wrapper-content animated fadeInRight" ng-show="authorized()">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="text-center" ng-show="isLoading">
+                        <img src="assets/images/loading.gif" />
+                    </div>
+                    <form role="form" name="editTermForm" data-toggle="validator" autocomplete="off" novalidate ng-show="!isLoading">
+                        <div class="row">
+                            <div class="form-group col-xs-12"
+                                ng-class="{'has-error': editTermForm.title.$touched && editTermForm.title.$invalid}">
+                                <label for="term-title">Title</label>
+                                <input id="term-title" type="text" class="form-control" ng-model="term.title"
+                                    name="title" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12"
+                                ng-class="{'has-error': editTermForm.text.$touched && editTermForm.text.$invalid}">
+                                <label for="term-text">Text</label>
+                                <textarea id="term-text" class="form-control" ng-model="term.text" name="text"
+                                    required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12"
+                                ng-class="{'has-error': editTermForm.url.$touched && editTermForm.url.$invalid}">
+                                <label for="term-url">URL</label>
+                                <input id="term-url" type="text" class="form-control" ng-model="term.url" name="url">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6"
+                                ng-class="{'has-error': editTermForm.agreeabilityTypeId.$touched && editTermForm.agreeabilityTypeId.$invalid}">
+                                <label for="term-agreeability-type-id">Agreeability Type</label>
+                                <select id="term-agreeability-type-id" class="form-control"
+                                    ng-model="term.agreeabilityTypeId" name="agreeabilityTypeId">
+                                    <option></option>
+                                    <option value="1">Non-agreeable</option>
+                                    <option value="2">Non-electronically-agreeable</option>
+                                    <option value="3">Electronically-agreeable</option>
+                                    <option value="4">DocuSignable</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6"
+                                ng-class="{'has-error': editTermForm.docusignTemplateId.$touched && editTermForm.docusignTemplateId.$invalid}">
+                                <label for="term-docusign-template-id">Docusign Template ID</label>
+                                <input id="term-docusign-template-id" type="text" class="form-control" ng-model="term.docusignTemplateId"
+                                    name="docusignTemplateId" ng-disabled="term.agreeabilityTypeId != docusignableAgrTypeId">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6"
+                                ng-class="{'has-error': editTermForm.legacyId.$touched && editTermForm.legacyId.$invalid}">
+                                <label for="term-legacy-id">Legacy ID</label>
+                                <input id="term-legacy-id" type="text" class="form-control" ng-model="term.legacyId"
+                                    name="legacyId">
+                            </div>
+                            <div class="form-group col-md-6"
+                                ng-class="{'has-error': editTermForm.typeId.$touched && editTermForm.typeId.$invalid}">
+                                <label for="term-type-id">Type ID</label>
+                                <input id="term-type-id" type="text" class="form-control" ng-model="term.typeId"
+                                    name="typeId">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button ui-sref="index.terms.list" type="button"
+                                    class="btn btn-sm btn-warning m-l pull-right">
+                                    <strong>Cancel</strong>
+                                </button>
+                                <button ng-click="submitTerm()" type="submit" class="btn btn-sm btn-success pull-right"
+                                    ng-disabled="editTermForm.$invalid || processing">
+                                    <strong ng-bind="term.id ? 'Save Changes' : 'Add Term'"></strong>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

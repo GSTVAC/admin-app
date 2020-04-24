@@ -444,6 +444,20 @@ angular.module('supportAdminApp', [
         controller: 'terms.TermsListController',
         resolve: { auth: authenticate }
       })
+      .state('index.terms.new', {
+        url: '/new',
+        templateUrl: 'app/terms/terms.edit.html',
+        controller: 'terms.EditTermController',
+        data: { pageTitle: 'New Term' },
+        resolve: { auth: authenticate }
+      })
+      .state('index.terms.edit', {
+        url: '/edit/:termId',
+        templateUrl: 'app/terms/terms.edit.html',
+        controller: 'terms.EditTermController',
+        data: { pageTitle: 'Edit Term' },
+        resolve: { auth: authenticate }
+      })
 ;
 
     $urlRouterProvider.otherwise('/index/main');

@@ -13,7 +13,9 @@
     "SPIGIT_API_URL": "spigit.com",
     "SPIGIT_API_VERSION_PATH": "/api/v1",
     "GROUP_V5_API_URL": "http://localhost:3000/v5",
-    "LOOKUP_V5_API_URL": "http://localhost:3000/v5"
+    "LOOKUP_V5_API_URL": "http://localhost:3000/v5",
+    "TERMS_V5_API_URL": "http://localhost:3000/v5",
+    "AGREEABILITY_TYPE_DOCUSIGNABLE": 4
   },
   "dev": {
     "API_URL": "https://api.topcoder-dev.com",
@@ -29,7 +31,9 @@
     "SPIGIT_API_URL": "spigit.com",
     "SPIGIT_API_VERSION_PATH": "/api/v1",
     "GROUP_V5_API_URL": "https://api.topcoder-dev.com/v5",
-    "LOOKUP_V5_API_URL": "https://api.topcoder-dev.com/v5"
+    "LOOKUP_V5_API_URL": "https://api.topcoder-dev.com/v5",
+    "TERMS_V5_API_URL": "https://api.topcoder-dev.com/v5",
+    "AGREEABILITY_TYPE_DOCUSIGNABLE": 4
   },
   "qa": {
     "API_URL": "https://api.topcoder-qa.com",
@@ -45,7 +49,9 @@
     "SPIGIT_API_URL": "spigit.com",
     "SPIGIT_API_VERSION_PATH": "/api/v1",
     "GROUP_V5_API_URL": "http://localhost:9000",
-    "LOOKUP_V5_API_URL": "http://localhost:3000/v5"
+    "LOOKUP_V5_API_URL": "http://localhost:3000/v5",
+    "TERMS_V5_API_URL": "http://localhost:3000/v5",
+    "AGREEABILITY_TYPE_DOCUSIGNABLE": 4
   },
   "prod": {
     "API_URL": "https://api.topcoder.com",
@@ -61,6 +67,8 @@
     "SPIGIT_API_URL": "spigit.com",
     "SPIGIT_API_VERSION_PATH": "/api/v1",
     "GROUP_V5_API_URL": "https://api.topcoder.com/v5",
-    "LOOKUP_V5_API_URL": "https://api.topcoder.com/v5"
+    "LOOKUP_V5_API_URL": "https://api.topcoder.com/v5",
+    "TERMS_V5_API_URL": "https://api.topcoder.com/v5",
+    "AGREEABILITY_TYPE_DOCUSIGNABLE": 4
   }
 }
